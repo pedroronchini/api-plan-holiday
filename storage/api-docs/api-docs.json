@@ -82,7 +82,61 @@
                     "400": {
                         "description": "Invalid request data"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/generatePdfPlanHoliday/{id}": {
+            "get": {
+                "tags": [
+                    "Plan Holiday"
+                ],
+                "summary": "Generate PDF for plan holiday",
+                "operationId": "736205d8b8c18711d1ae4f41b7815ef2",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Plan holiday ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "pdfUrl": {
+                                            "description": "URL of the generated PDF",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Plan holiday not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/showPlanHoliday": {
@@ -96,7 +150,12 @@
                     "200": {
                         "description": "Success"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/storePlanHoliday": {
@@ -190,7 +249,12 @@
                     "400": {
                         "description": "Validation error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/showPlanHoliday/{id}": {
@@ -261,7 +325,12 @@
                     "404": {
                         "description": "Plan holiday not found"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/updatePlanHoliday/{id}": {
@@ -368,7 +437,12 @@
                     "400": {
                         "description": "Validation error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/deletePlanHoliday/{id}": {
@@ -408,7 +482,12 @@
                     "404": {
                         "description": "Plan holiday not found"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         }
     }

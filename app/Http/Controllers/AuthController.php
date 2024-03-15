@@ -54,6 +54,7 @@ class AuthController extends Controller
      *      path="/api/login",
      *      summary="Login user",
      *      tags={"User"},
+     *      security={{"bearerAuth":{}}},
      *      @OA\RequestBody(
      *          required=true,
      *          @OA\JsonContent(

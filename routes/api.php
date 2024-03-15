@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PlanHolidayController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -13,6 +14,7 @@ Route::get('/showPlanHoliday/{id}', [PlanHolidayController::class, 'show'])->mid
 Route::post('/storePlanHoliday', [PlanHolidayController::class, 'store'])->middleware('auth:api');
 Route::put('/updatePlanHoliday/{id}', [PlanHolidayController::class, 'update'])->middleware('auth:api');
 Route::delete('/deletePlanHoliday/{id}', [PlanHolidayController::class, 'destroy'])->middleware('auth:api');
+Route::get('/generatePdfPlanHoliday/{id}', [PdfController::class, 'generatePdf'])->middleware('auth:api');
 
 Route::get('/user', function (Request $request) {
     return $request->user();

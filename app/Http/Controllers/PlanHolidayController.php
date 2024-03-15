@@ -13,6 +13,7 @@ class PlanHolidayController extends Controller
      *      path="/api/showPlanHoliday",
      *      summary="Get all plan holidays",
      *      tags={"Plan Holiday"},
+     *      security={{"bearerAuth":{}}},
      *      @OA\Response(
      *          response=200,
      *          description="Success",
@@ -30,6 +31,7 @@ class PlanHolidayController extends Controller
      *      path="/api/storePlanHoliday",
      *      summary="Store a new plan holiday",
      *      tags={"Plan Holiday"},
+     *      security={{"bearerAuth":{}}},
      *      @OA\RequestBody(
      *          required=true,
      *          @OA\JsonContent(
@@ -91,6 +93,7 @@ class PlanHolidayController extends Controller
      *      path="/api/showPlanHoliday/{id}",
      *      summary="Get a plan holiday by ID",
      *      tags={"Plan Holiday"},
+     *      security={{"bearerAuth":{}}},
      *      @OA\Parameter(
      *          name="id",
      *          in="path",
@@ -135,6 +138,7 @@ class PlanHolidayController extends Controller
      *      path="/api/updatePlanHoliday/{id}",
      *      summary="Update a plan holiday by ID",
      *      tags={"Plan Holiday"},
+     *      security={{"bearerAuth":{}}},
      *      @OA\Parameter(
      *          name="id",
      *          in="path",
@@ -208,6 +212,7 @@ class PlanHolidayController extends Controller
      *      path="/api/deletePlanHoliday/{id}",
      *      summary="Delete a plan holiday by ID",
      *      tags={"Plan Holiday"},
+     *      security={{"bearerAuth":{}}},
      *      @OA\Parameter(
      *          name="id",
      *          in="path",
