@@ -9,6 +9,8 @@ class PlanHoliday extends Model
 {
     use HasFactory;
 
+    protected $table = 'plan_holiday';
+
     protected $fillable = [
         'title',
         'description',

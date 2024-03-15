@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('description');
             $table->date('date');
             $table->string('location');
-            $table->text('participants');
+            $table->text('participants')->nullable();
             $table->timestamps();
         });
     }
