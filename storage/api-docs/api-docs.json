@@ -1,0 +1,415 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Plan Holiday",
+        "description": "API Plan Holiday",
+        "contact": {
+            "email": "pe-ronchini@hotmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Register a new user",
+                "operationId": "8a56853624e025573120a09a4c75d468",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User registered successfully"
+                    },
+                    "400": {
+                        "description": "Invalid request data"
+                    }
+                }
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Login user",
+                "operationId": "a3b306d14572d1f4bd6c064b3233e7b8",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User logged in successfully"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "400": {
+                        "description": "Invalid request data"
+                    }
+                }
+            }
+        },
+        "/api/showPlanHoliday": {
+            "get": {
+                "tags": [
+                    "Plan Holiday"
+                ],
+                "summary": "Get all plan holidays",
+                "operationId": "974acf49171123b9325f9fbe6809ccd0",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/storePlanHoliday": {
+            "post": {
+                "tags": [
+                    "Plan Holiday"
+                ],
+                "summary": "Store a new plan holiday",
+                "operationId": "06a1602fdcea40a3cc1c12e24d10b898",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "example": "New Holiday"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "A new holiday"
+                                    },
+                                    "date": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2023-05-01"
+                                    },
+                                    "location": {
+                                        "type": "string",
+                                        "example": "New York"
+                                    },
+                                    "participants": {
+                                        "type": "string",
+                                        "example": "John Doe, Jane Doe"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "title": {
+                                            "type": "string",
+                                            "example": "New Holiday"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "A new holiday"
+                                        },
+                                        "date": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "example": "2023-05-01"
+                                        },
+                                        "location": {
+                                            "type": "string",
+                                            "example": "New York"
+                                        },
+                                        "participants": {
+                                            "type": "string",
+                                            "example": "John Doe, Jane Doe"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "format": "datetime",
+                                            "example": "2023-05-01T00:00:00.000000Z"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "format": "datetime",
+                                            "example": "2023-05-01T00:00:00.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/showPlanHoliday/{id}": {
+            "get": {
+                "tags": [
+                    "Plan Holiday"
+                ],
+                "summary": "Get a plan holiday by ID",
+                "operationId": "07403c97ac65edf89a45fd22197f69dc",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "title": {
+                                            "type": "string",
+                                            "example": "New Holiday"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "A new holiday"
+                                        },
+                                        "date": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "example": "2023-05-01"
+                                        },
+                                        "location": {
+                                            "type": "string",
+                                            "example": "New York"
+                                        },
+                                        "participants": {
+                                            "type": "string",
+                                            "example": "John Doe, Jane Doe"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "format": "datetime",
+                                            "example": "2023-05-01T00:00:00.000000Z"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "format": "datetime",
+                                            "example": "2023-05-01T00:00:00.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Plan holiday not found"
+                    }
+                }
+            }
+        },
+        "/api/updatePlanHoliday/{id}": {
+            "put": {
+                "tags": [
+                    "Plan Holiday"
+                ],
+                "summary": "Update a plan holiday by ID",
+                "operationId": "cdfaa4c039453ecc8b58adf182fc5b3c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "example": "Updated Holiday"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "An updated holiday"
+                                    },
+                                    "date": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2023-05-01"
+                                    },
+                                    "location": {
+                                        "type": "string",
+                                        "example": "New York"
+                                    },
+                                    "participants": {
+                                        "type": "string",
+                                        "example": "John Doe, Jane Doe"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "title": {
+                                            "type": "string",
+                                            "example": "Updated Holiday"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "An updated holiday"
+                                        },
+                                        "date": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "example": "2023-05-01"
+                                        },
+                                        "location": {
+                                            "type": "string",
+                                            "example": "New York"
+                                        },
+                                        "participants": {
+                                            "type": "string",
+                                            "example": "John Doe, Jane Doe"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "format": "datetime",
+                                            "example": "2023-05-01T00:00:00.000000Z"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "format": "datetime",
+                                            "example": "2023-05-01T00:00:00.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Plan holiday not found"
+                    },
+                    "400": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/deletePlanHoliday/{id}": {
+            "delete": {
+                "tags": [
+                    "Plan Holiday"
+                ],
+                "summary": "Delete a plan holiday by ID",
+                "operationId": "e787305c951271ab3636d170946f5c66",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Plan holiday deleted"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Plan holiday not found"
+                    }
+                }
+            }
+        }
+    }
+}
