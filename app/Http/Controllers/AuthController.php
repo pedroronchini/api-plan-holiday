@@ -13,7 +13,8 @@ class AuthController extends Controller
      * @OA\Post(
      *     path="/api/register",
      *     summary="Register a new user",
-     *     tags={"User"},
+     *     tags={"Register"},
+     *     operationId="register",
      *     @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(
@@ -53,8 +54,8 @@ class AuthController extends Controller
      * @OA\Post(
      *      path="/api/login",
      *      summary="Login user",
-     *      tags={"User"},
-     *      security={{"bearerAuth":{}}},
+     *      tags={"Login"},
+     *      operationId="login",
      *      @OA\RequestBody(
      *          required=true,
      *          @OA\JsonContent(

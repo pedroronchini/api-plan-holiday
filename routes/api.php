@@ -6,10 +6,10 @@ use App\Http\Controllers\PlanHolidayController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/login', [AuthController::class, 'login']);
-Route::post('/register', [AuthController::class, 'register']);
+Route::post('login', [AuthController::class, 'login']);
+Route::post('register', [AuthController::class, 'register']);
 
-Route::get('/showPlanHoliday', [PlanHolidayController::class, 'index'])->middleware('auth:api');
+Route::get('/showPlanHoliday', [PlanHolidayController::class, 'index'])->middleware('auth:api')->name('showPlanHoliday');
 Route::get('/showPlanHoliday/{id}', [PlanHolidayController::class, 'show'])->middleware('auth:api');
 Route::post('/storePlanHoliday', [PlanHolidayController::class, 'store'])->middleware('auth:api');
 Route::put('/updatePlanHoliday/{id}', [PlanHolidayController::class, 'update'])->middleware('auth:api');

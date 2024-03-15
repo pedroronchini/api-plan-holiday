@@ -12,7 +12,7 @@ use Dompdf\Options;
  *     path="/generatePdfPlanHoliday/{id}",
  *     summary="Generate PDF for plan holiday",
  *     tags={"Plan Holiday"},
- *     security={{"bearerAuth":{}}},
+ *     security={"passport": {"oauth2": {}}},
  *     @OA\Parameter(
  *         name="id",
  *         in="path",

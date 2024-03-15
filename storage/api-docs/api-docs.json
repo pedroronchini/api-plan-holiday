@@ -12,10 +12,10 @@
         "/api/register": {
             "post": {
                 "tags": [
-                    "User"
+                    "Register"
                 ],
                 "summary": "Register a new user",
-                "operationId": "8a56853624e025573120a09a4c75d468",
+                "operationId": "register",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -50,10 +50,10 @@
         "/api/login": {
             "post": {
                 "tags": [
-                    "User"
+                    "Login"
                 ],
                 "summary": "Login user",
-                "operationId": "a3b306d14572d1f4bd6c064b3233e7b8",
+                "operationId": "login",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -82,12 +82,7 @@
                     "400": {
                         "description": "Invalid request data"
                     }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
+                }
             }
         },
         "/generatePdfPlanHoliday/{id}": {
@@ -132,11 +127,11 @@
                         "description": "Internal server error"
                     }
                 },
-                "security": [
-                    {
-                        "bearerAuth": []
+                "security": {
+                    "passport": {
+                        "oauth2": []
                     }
-                ]
+                }
             }
         },
         "/api/showPlanHoliday": {
@@ -151,11 +146,11 @@
                         "description": "Success"
                     }
                 },
-                "security": [
-                    {
-                        "bearerAuth": []
+                "security": {
+                    "passport": {
+                        "oauth2": []
                     }
-                ]
+                }
             }
         },
         "/api/storePlanHoliday": {
@@ -250,11 +245,11 @@
                         "description": "Validation error"
                     }
                 },
-                "security": [
-                    {
-                        "bearerAuth": []
+                "security": {
+                    "passport": {
+                        "oauth2": []
                     }
-                ]
+                }
             }
         },
         "/api/showPlanHoliday/{id}": {
@@ -326,11 +321,11 @@
                         "description": "Plan holiday not found"
                     }
                 },
-                "security": [
-                    {
-                        "bearerAuth": []
+                "security": {
+                    "passport": {
+                        "oauth2": []
                     }
-                ]
+                }
             }
         },
         "/api/updatePlanHoliday/{id}": {
@@ -438,11 +433,11 @@
                         "description": "Validation error"
                     }
                 },
-                "security": [
-                    {
-                        "bearerAuth": []
+                "security": {
+                    "passport": {
+                        "oauth2": []
                     }
-                ]
+                }
             }
         },
         "/api/deletePlanHoliday/{id}": {
@@ -483,11 +478,29 @@
                         "description": "Plan holiday not found"
                     }
                 },
-                "security": [
-                    {
-                        "bearerAuth": []
+                "security": {
+                    "passport": {
+                        "oauth2": []
                     }
-                ]
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "passport": {
+                "type": "apiKey",
+                "description": "Laravel passport oauth2 security.",
+                "in": "header",
+                "scheme": "https",
+                "flows": {
+                    "password": {
+                        "authorizationUrl": "http://localhost/oauth/authorize",
+                        "tokenUrl": "http://localhost/oauth/token",
+                        "refreshUrl": "http://localhost/token/refresh",
+                        "scopes": []
+                    }
+                }
             }
         }
     }
