@@ -67,13 +67,7 @@ class PlanHolidayController extends Controller
             return response()->json(['error' => $validator->errors()], 400);
         }
 
-        $planHoliday->update([
-            'title' => $request->title,
-            'description' => $request->description,
-            'date' => $request->date,
-            'location' => $request->location,
-            'participants' => $request->participants
-        ]);
+        $planHoliday->update($request->all());
 
         return response()->json($planHoliday, 200);
     }
