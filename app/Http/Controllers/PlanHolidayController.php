@@ -18,7 +18,7 @@ class PlanHolidayController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'string|required',
             'description' => 'string|required',
-            'date' => 'required|date_format: Y-m-d',
+            'date' => 'required|date_format: YYYY-mm-dd',
             'location' => 'string|required',
             'participants' => 'string|nullable'
         ]);
@@ -58,7 +58,7 @@ class PlanHolidayController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'string|nullable',
             'description' => 'string|nullable',
-            'date' => 'date_format: Y-m-d|nullable',
+            'date' => 'date_format: YYYY-mm-dd|nullable',
             'location' => 'string|nullable',
             'participants' => 'string|nullable'
         ]);
